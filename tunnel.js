@@ -9,6 +9,7 @@ const subdomain = "dcappimperial"; // optional (try custom name, else random)
     const tunnel = await localtunnel({
       port,
       subdomain,
+      host: "https://localtunnel.me",
     });
 
     console.log(`🚀 Tunnel started!`);

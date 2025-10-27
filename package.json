@@ -5,7 +5,8 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./tunnel.js"
+    "start": "nodemon ./tunnel.js",
+    "tunnel": "npx localtunnel --port 7108 --subdomain dcappimperial --no-auth"
   },
   "keywords": [],
   "author": "",
