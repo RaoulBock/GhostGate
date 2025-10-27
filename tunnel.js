@@ -22,8 +22,8 @@ tunnel.stdout.on("data", (data) => {
   // Extract and show the public URL nicely
   const match = output.match(/https:\/\/[^\s]+\.loca\.lt/);
   if (match) {
-    console.log(🌍 Public URL: ${match[0]});
-    console.log(🔁 Forwarding -> http://localhost:${port});
+    console.log(`🌍 Public URL: ${match[0]}`);
+    console.log(`🔁 Forwarding -> http://localhost:${port}`);
   }
 });
 
@@ -32,5 +32,5 @@ tunnel.stderr.on("data", (data) => {
 });
 
 tunnel.on("close", (code) => {
-  console.log(❌ Tunnel closed (exit code ${code}));
+  console.log(`❌ Tunnel closed (exit code ${code})`);
 });
