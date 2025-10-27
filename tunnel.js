@@ -1,36 +1,21 @@
-// tunnel.js
+import httpProxy from "http-proxy";
 import { spawn } from "child_process";
 
-const port = 7108;
-const subdomain = "dcappimperial"; // change if it's already taken
-
-console.log("🚀 Starting LocalTunnel...");
-
-const tunnel = spawn("npx", [
-  "localtunnel",
-  "--port",
-  port.toString(),
-  "--subdomain",
-  subdomain,
-  "--no-auth", // disables password prompt
-]);
-
-tunnel.stdout.on("data", (data) => {
-  const output = data.toString();
-  console.log(output);
-
-  // Extract and show the public URL nicely
-  const match = output.match(/https:\/\/[^\s]+\.loca\.lt/);
-  if (match) {
-    console.log(`🌍 Public URL: ${match[0]}`);
-    console.log(`🔁 Forwarding -> http://localhost:${port}`);
-  }
+const proxy = httpProxy.createProxyServer({
+  target: "https://dc-bc-app.imperial.local:7108",
+  changeOrigin: true,
+  secure: false, // ignore self-signed certs
+  headers: {
+    host: "dc-bc-app.imperial.local",
+  },
 });
 
-tunnel.stderr.on("data", (data) => {
-  console.error("⚠ Error:", data.toString());
-});
+proxy.listen(7108, () => {
+  console.log("🔁 Proxy running on http://localhost:7108 -> https://dc-bc-app.imperial.local:7108");
 
-tunnel.on("close", (code) => {
-  console.log(`❌ Tunnel closed (exit code ${code})`);
+  // Start Tunnelmole CLI
+  const tmole = spawn("tmole", ["7108"]);
+
+  tmole.stdout.on("data", (data) => console.log(data.toString()));
+  tmole.stderr.on("data", (data) => console.error(data.toString()));
 });
