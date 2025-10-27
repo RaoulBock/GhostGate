@@ -1,25 +1,36 @@
 // tunnel.js
-import localtunnel from "localtunnel";
+import { spawn } from "child_process";
 
-const port = 7108; // your local app port
-const subdomain = "dcappimperial"; // optional (try custom name, else random)
+const port = 7108;
+const subdomain = "dcappimperial"; // change if it's already taken
 
-(async () => {
-  try {
-    const tunnel = await localtunnel({
-      port,
-      subdomain,
-      host: "https://localtunnel.me",
-    });
+console.log("🚀 Starting LocalTunnel...");
 
-    console.log(`🚀 Tunnel started!`);
-    console.log(`Public URL: ${tunnel.url}`);
-    console.log(`Forwarding -> https://dc-bc-app.imperial.local:${port}`);
+const tunnel = spawn("npx", [
+  "localtunnel",
+  "--port",
+  port.toString(),
+  "--subdomain",
+  subdomain,
+  "--no-auth", // disables password prompt
+]);
 
-    tunnel.on("close", () => {
-      console.log("❌ Tunnel closed");
-    });
-  } catch (err) {
-    console.error("Error starting tunnel:", err);
+tunnel.stdout.on("data", (data) => {
+  const output = data.toString();
+  console.log(output);
+
+  // Extract and show the public URL nicely
+  const match = output.match(/https:\/\/[^\s]+\.loca\.lt/);
+  if (match) {
+    console.log(🌍 Public URL: ${match[0]});
+    console.log(🔁 Forwarding -> http://localhost:${port});
   }
-})();
+});
+
+tunnel.stderr.on("data", (data) => {
+  console.error("⚠ Error:", data.toString());
+});
+
+tunnel.on("close", (code) => {
+  console.log(❌ Tunnel closed (exit code ${code}));
+});
