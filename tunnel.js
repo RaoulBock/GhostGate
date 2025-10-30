@@ -11,7 +11,9 @@ const proxy = httpProxy.createProxyServer({
 });
 
 proxy.listen(7108, () => {
-  console.log("🔁 Proxy running on http://localhost:7108 -> https://dc-bc-app.imperial.local:7108");
+  console.log(
+    "🔁 Proxy running on http://localhost:7108 -> https://dc-bc-app.imperial.local:7108"
+  );
 
   // Start Tunnelmole CLI
   const tmole = spawn("tmole", ["7108"]);
