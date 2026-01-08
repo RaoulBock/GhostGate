@@ -28,7 +28,6 @@ for (const key of required) {
 
 const { target, host, port } = options;
 
-// --- Create HTTP Proxy ---
 const proxy = httpProxy.createProxyServer({
   target,
   changeOrigin: true,
@@ -36,7 +35,6 @@ const proxy = httpProxy.createProxyServer({
   headers: { host },
 });
 
-// --- Start Proxy ---
 proxy.listen(port, () => {
   console.log(`🚀 Proxy running on http://localhost:${port} -> ${target}`);
 

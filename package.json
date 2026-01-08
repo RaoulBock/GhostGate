@@ -6,13 +6,16 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon ./tunnel.js",
+    "uat": "nodemon ./uat-tunnel.js",
     "tunnel": "npx localtunnel --port 7108 --subdomain dcappimperial --no-auth"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^17.2.3",
+    "express": "^5.2.1",
     "http-proxy": "^1.18.1",
     "localtunnel": "^2.0.2",
     "nodemon": "^3.1.10"
