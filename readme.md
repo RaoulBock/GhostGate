@@ -63,9 +63,20 @@ const PORT = 1234;
 
 target: https://example.domain.local:1234
 host: example.domain.local
+```
 
-Run
+#### 2. Run
 
 ```js
 
 node tunne.js
+```
+
+#### 2. Output Example
+
+```bash
+🔁 Proxy running on http://localhost:1234 -> https://example.domain.local:1234
+https://random-name.tunnelmole.net
+```
+
+You can now access your internal service using the generated TunnelMole URL
