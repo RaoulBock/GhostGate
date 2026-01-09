@@ -100,3 +100,42 @@ node secure-exchange.js \
   --port 3000
 ```
 
+- --target   HTTPS service you want to expose
+- --host     Host header (domain only, no port)
+- --port     Local port the proxy listens on
+
+#### 3. Output Example
+
+```bash
+🚀 Proxy running on http://localhost:3000 -> https://internal.service.local:8443
+https://secure-link.tunnelmole.net
+```
+
+---
+
+### Example use Cases
+
+- ✔ Test Stripe / PayPal webhooks locally
+- ✔ Share internal admin dashboards
+- ✔ Expose services behind NAT or firewalls
+- ✔ Demo local projects publicly
+
+### 🔒 Security Notes
+
+- * SSL verification is disabled to support self-signed certificates
+- * TunnelMole URLs are public and temporary
+- * Not recommended for production use without additional security
+
+### 🛠️ Built With
+
+- * Node.js
+- * http-proxy
+- * TunnelMole
+
+### 📄 License
+
+MIT License
+
+### ⭐️ Support
+
+If you find this project useful, give it a ⭐ on GitHub and share it with others.
