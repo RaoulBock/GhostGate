@@ -36,3 +36,30 @@ This project provides *two ways to run the tunnel*:
 ├── secure-exchange.js
 ├── package.json
 └── README.md
+```
+
+---
+
+## 🔧 Installation
+
+- git clone https://github.com/your-username/secure-exchange-tunnel.git
+- cd secure-exchange-tunnel
+- npm install
+
+---
+
+## 🚀 Usage
+
+### Option 1: tunnel.js (Simple & Fixed Configuration)
+
+Use this option when you have *one known internal service* and want minimal setup.
+
+#### 1. Configure
+
+Edit tunnel.js and update the values below:
+
+```js
+const PORT = 1234;
+
+target: https://example.domain.local:1234
+host: example.domain.local
