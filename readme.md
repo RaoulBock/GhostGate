@@ -63,3 +63,9 @@ const PORT = 1234;
 
 target: https://example.domain.local:1234
 host: example.domain.local
+
+Run
+
+```js
+
+node tunne.js
