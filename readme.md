@@ -80,3 +80,23 @@ https://random-name.tunnelmole.net
 ```
 
 You can now access your internal service using the generated TunnelMole URL
+
+### Option 2: secure-exchange.js (CLI-Based – Recommended)
+
+This option is more flexible and ideal for scripts, automation, or multiple environments.
+
+#### 1. (Optional) Make Executable
+
+```bash
+chmod +x secure-exchange.js
+```
+
+#### 2. Run with Arguments
+
+```bash
+node secure-exchange.js \
+  --target https://internal.service.local:8443 \
+  --host internal.service.local \
+  --port 3000
+```
+
