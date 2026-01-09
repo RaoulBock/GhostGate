@@ -1,16 +1,24 @@
 {
-  "name": "my-tunnel",
-  "version": "1.0.0",
-  "description": "",
+  "name": "ghostgate",
+  "version": "1.2.0",
+  "description": "Secure HTTPS tunneling via TunnelMole",
   "type": "module",
-  "main": "index.js",
-  "scripts": {
-    "start": "nodemon ./tunnel.js",
-    "uat": "nodemon ./uat-tunnel.js",
-    "tunnel": "npx localtunnel --port 7108 --subdomain dcappimperial --no-auth"
+  "bin": {
+    "ghostgate": "./secure-exchange.js"
   },
-  "keywords": [],
-  "author": "",
+  "main": "secure-exchange.js",
+  "scripts": {
+    "start": "node secure-exchange.js"
+  },
+  "keywords": [
+    "cli",
+    "proxy",
+    "tunnel",
+    "tunneling",
+    "node",
+    "tmole"
+  ],
+  "author": "Raoul Bock",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",

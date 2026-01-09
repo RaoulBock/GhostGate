@@ -14,6 +14,24 @@ args.forEach((arg, index) => {
   }
 });
 
+if (process.argv.includes("--help")) {
+  console.log(`
+GhostGate v1.2.0
+
+Secure HTTPS tunneling using TunnelMole
+
+Usage:
+  ghostgate --target <url> --host <hostname> --port <number>
+
+Options:
+  --target   HTTPS service to expose
+  --host     Host header (no port)
+  --port     Local proxy port
+  --help     Show this help message
+`);
+  process.exit(0);
+}
+
 // --- Validate Required Arguments ---
 const required = ["target", "host", "port"];
 for (const key of required) {
