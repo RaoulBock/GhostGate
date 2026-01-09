@@ -2,7 +2,7 @@ import httpProxy from "http-proxy";
 import { spawn } from "child_process";
 
 const proxy = httpProxy.createProxyServer({
-  target: "https://dc-bc-app.imperial.local:7108",
+  target: "https://example.domain.local:7108", // Change to web service link
   changeOrigin: true,
   secure: false, // ignore self-signed certs
   headers: {
@@ -12,7 +12,7 @@ const proxy = httpProxy.createProxyServer({
 
 proxy.listen(7108, () => {
   console.log(
-    "🔁 Proxy running on http://localhost:7108 -> https://dc-bc-app.imperial.local:7108"
+    "🔁 Proxy running on http://localhost:7108 -> https://example.domain.local:7108" // Change to web service link
   );
 
   // Start Tunnelmole CLI
