@@ -42,7 +42,7 @@ This project provides *two ways to run the tunnel*:
 
 ## 🔧 Installation
 
-- git clone https://github.com/your-username/secure-exchange-tunnel.git
+- git clone https://github.com/RaoulBock/GhostGate.git
 - cd secure-exchange-tunnel
 - npm install
 
